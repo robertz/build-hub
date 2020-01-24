@@ -6,11 +6,11 @@ component{
 		// coldbox directives
 		coldbox = {
 			//Application Setup
-			appName 				= getSystemSetting( "APPNAME", "Your app name here" ),
+			appName 				= getSystemSetting( "APPNAME", "build-hub" ),
 			eventName 				= "event",
 
 			//Development Settings
-			reinitPassword			= "",
+			reinitPassword			= "true",
 			handlersIndexAutoReload = true,
 
 			//Implicit Events

@@ -30,7 +30,7 @@ component{
 			viewsExternalLocation		= "",
 			layoutsExternalLocation 	= "",
 			handlersExternalLocation  	= "",
-			requestContextDecorator 	= "",
+			requestContextDecorator 	= "models.RequestContextDecorator",
 			controllerDecorator			= "",
 
 			//Error/Exception Handling
@@ -49,7 +49,6 @@ component{
 
 		// custom settings
 		settings = {
-			env: "dev"
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.

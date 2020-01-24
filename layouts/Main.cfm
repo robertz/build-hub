@@ -11,7 +11,9 @@
 	<!---css --->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://hub.kisdigital.com/assets/css/site.css">
+	<cfloop array="#prc.css#" index="i">
+		<link rel="stylesheet" href="#i#">
+	</cfloop>
 </head>
 <body>
 
@@ -21,7 +23,7 @@
 				<a href="/"><strong>Build Hub</strong></a>
 			</div>
 			<div class="menu-links">
-				<a href="/account">My Account</a>
+				<a href="/">My Account</a>
 			</div>
 		</div>
 	</div>

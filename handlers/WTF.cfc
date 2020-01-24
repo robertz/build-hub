@@ -6,7 +6,7 @@ component output = "false" {
 
 	function robsHood (event, rc, prc) {
 
-		writeDump(var=getSetting("ENVIRONMENT"), abort = true, label = "label");
+		writeDump(var=[rc,prc], abort = true, label = "label");
 
 	}
 

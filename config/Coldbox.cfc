@@ -56,8 +56,7 @@ component{
 		// create a function with the name of the environment so it can be executed if that environment is detected
 		// the value of the environment is a list of regex patterns to match the cgi.http_host.
 		environments = {
-			development = "localhost,^127\.0\.0\.1",
-			production = "hub.kisdigital.com"
+			development = "localhost,^127\.0\.0\.1"
 		};
 
 		// Module Directives
@@ -142,7 +141,7 @@ component{
 	}
 
 	function production(){
-		coldbox.setting.env = "production"
+		coldbox.settings.env = "production"
 	}
 
 }

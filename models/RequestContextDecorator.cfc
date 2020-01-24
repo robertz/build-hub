@@ -12,8 +12,10 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 		prc['jsonData'] = {};
 
 		if(prc.env == "production"){
+			prc['baseURL'] = "https://hub.kisdigital.com/";
 			prc.css.append("https://hub.kisdigital.com/assets/css/site.css");
 		} else {
+			prc['baseURL'] = "http://127.0.0.1:8080/";
 			prc.css.append("/assets/css/site.css");
 		}
 

@@ -7,17 +7,9 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 		var prc = getRequestContext().getCollection(private = true);
 
 		prc['env'] = variables.Controller.getSetting("Environment");
-		prc['scripts'] = [];
-		prc['css'] = [];
-		prc['jsonData'] = {};
+		prc['baseURL'] = prc.env == "production" ?  "https://hub.kisdigital.com/" : "http://127.0.0.1:8080/";
 
-		if(prc.env == "production"){
-			prc['baseURL'] = "https://hub.kisdigital.com/";
-			prc.css.append("https://hub.kisdigital.com/assets/css/site.css");
-		} else {
-			prc['baseURL'] = "http://127.0.0.1:8080/";
-			prc.css.append("/assets/css/site.css");
-		}
+		prc['jsonData'] = {};
 
 		return this;
 	}

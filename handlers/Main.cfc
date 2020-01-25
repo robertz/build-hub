@@ -1,9 +1,11 @@
 component extends="coldbox.system.EventHandler"{
 
 	property name = "UserService" inject = "model";
+	property name = "BuildService" inject = "model";
 
 	// Default Action
 	function index(event,rc,prc){
+		prc['builds'] = BuildService.getBuilds();
 		event.setView("main/index");
 	}
 
@@ -12,6 +14,10 @@ component extends="coldbox.system.EventHandler"{
 		relocate("main");
 	}
 
+	function logout (event, rc, prc) {
+		client['userId'] = getSetting("defaultUser");
+		relocate("main");
+	}
 
 	/************************************** IMPLICIT ACTIONS *********************************************/
 

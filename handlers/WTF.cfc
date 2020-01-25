@@ -1,6 +1,7 @@
 component output = "false" {
 
 	property name = "UserService" inject;
+	property name = "BuildService" inject;
 
 	function index (event, rc, prc) {
 		abort;
@@ -16,5 +17,11 @@ component output = "false" {
 
 	function dumpContexts (event, rc, prc) {
 		writeDump(var=[rc, prc, client], abort = true, label = "scopes");
+	}
+
+	function getBuilds (event, rc, prc) {
+		var builds = "SELECT builds.id, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, users.username AS author FROM builds, users WHERE builds.author = users.id";
+
+		writeDump(var=queryExecute(builds), abort = true, label = "label");
 	}
 }

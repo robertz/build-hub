@@ -1,5 +1,5 @@
 <cfoutput>
 <div class="content-container">
-	Content goes here
+	City of Heroes Build Database
 </div>
 </cfoutput>

@@ -49,6 +49,7 @@ component{
 
 		// custom settings
 		settings = {
+			defaultUser = "a706590a-442c-47c2-a6b7c544bb925b17"
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.

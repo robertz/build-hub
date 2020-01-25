@@ -1,15 +1,17 @@
 component extends="coldbox.system.EventHandler"{
 
+	property name = "UserService" inject = "model";
+
 	// Default Action
 	function index(event,rc,prc){
-		prc.welcomeMessage = "Welcome to ColdBox!";
 		event.setView("main/index");
 	}
 
-	// Do something
-	function doSomething(event,rc,prc){
-		relocate( "main.index" );
+	function login (event, rc, prc) {
+		client['userId'] = UserService.validateLogin(user = rc.user, pass = rc.pass);
+		relocate("main");
 	}
+
 
 	/************************************** IMPLICIT ACTIONS *********************************************/
 

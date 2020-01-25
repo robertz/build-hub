@@ -15,16 +15,7 @@
 </head>
 <body>
 
-	<div class="fixed-header">
-		<div class="container">
-			<div class="brand">
-				<a href="/"><strong>Build Hub</strong></a>
-			</div>
-			<div class="menu-links">
-				<a href="/">My Account</a>
-			</div>
-		</div>
-	</div>
+	#renderView("partials/menu")#
 
 	<!---Container And Views --->
 	<div class="container">#renderView()#</div>

@@ -14,5 +14,7 @@ component output = "false" {
 		writeDump(var=UserService.validateLogin(user = "Slightly", pass = "password"), abort = true, label = "label");
 	}
 
-
+	function dumpContexts (event, rc, prc) {
+		writeDump(var=[rc, prc, client], abort = true, label = "scopes");
+	}
 }

@@ -6,7 +6,7 @@
 		</div>
 		<cfif prc.isIdentified>
 			<div class="menu-links">
-				<a href="/">My Account</a>
+				<a href="/account">My Account</a>
 			</div>
 		<cfelse>
 			<div class="menu-links">

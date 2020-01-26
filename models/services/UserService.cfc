@@ -18,7 +18,11 @@ component output = "false" {
 	}
 
 	function validateLogin (required string user, required string pass) {
-		var q = queryExecute("SELECT * FROM users WHERE LCASE(username) = ? and password = ?", [ lcase(user), hashString(pass) ]);
+		var params = {
+			'user': { value: lcase(user), type: "cf_sql_varchar" },
+			'pass': { value: hashString(pass), type: "cf_sql_varchar" }
+		};
+		var q = queryExecute("SELECT * FROM users WHERE LCASE(username) = :user and password = :pass", params);
 		return q.recordCount ? q.id : variables.defaultUser;
 	}
 

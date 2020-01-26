@@ -15,7 +15,7 @@
 		<tbody>
 			<cfloop query="#prc.builds#">
 				<tr>
-					<td>#archetype#</td>
+					<td><a href="/build/view/id/#id#">#archetype#</a></td>
 					<td>#primary#</td>
 					<td>#secondary#</td>
 					<td>#title#</td>

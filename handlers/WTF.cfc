@@ -1,5 +1,6 @@
 component output = "false" {
 
+	property name = "defaultUser" inject = "coldbox:setting:defaultUser";
 	property name = "UserService" inject;
 	property name = "BuildService" inject;
 
@@ -12,7 +13,7 @@ component output = "false" {
 	}
 
 	function robsHood (event, rc, prc) {
-		writeDump(var=UserService.validateLogin(user = "Slightly", pass = "password"), abort = true, label = "label");
+		writeDump(var=BuildService.getBuildsByAccount(id = client.userId), abort = true, label = "label");
 	}
 
 	function dumpContexts (event, rc, prc) {

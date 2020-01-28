@@ -12,6 +12,17 @@ component output = "false" {
 		return queryExecute(buildSQL);
 	}
 
+	function getBuildsByAccount (required string id) {
+		var params = {
+			'id': { value: id, type: "cf_sql_varchar" }
+		};
+		var buildSQL = "
+			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, users.username AS author
+			FROM builds, users
+			WHERE  builds.author = users.id AND builds.author = :id AND builds.deleted = 0";
+		return queryExecute(buildSQL, params);
+	}
+
 	function getBuild (required string id) {
 		var buildSQL = "
 			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, users.username AS author
@@ -62,5 +73,7 @@ component output = "false" {
 		}
 		return;
 	}
+
+
 
 }

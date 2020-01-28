@@ -52,12 +52,14 @@ component{
 			defaultUser = "a706590a-442c-47c2-a6b7c544bb925b17"
 		};
 
-		// environment settings, create a detectEnvironment() method to detect it yourself.
-		// create a function with the name of the environment so it can be executed if that environment is detected
-		// the value of the environment is a list of regex patterns to match the cgi.http_host.
-		// environments = {
-		// 	development = "localhost,^127\.0\.0\.1"
-		// };
+		antisamy = {
+			// Activate auto request capture cleanups interceptor
+			autoClean = true,
+			// Default Policy to use, available are: antisamy, ebay, myspace, slashdot and tinymce
+			defaultPolicy = "slashdot",
+			// Custom Policy absolute path, leave empty if not used
+			customPolicy = ""
+		};
 
 		// Module Directives
 		modules = {

@@ -6,7 +6,7 @@ component output = "false" {
 
 	function getBuilds () {
 		var buildSQL = "
-			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, users.username AS author
+			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, builds.created, builds.updated, users.username AS author
 			FROM builds, users
 			WHERE builds.author = users.id AND builds.deleted = 0";
 		return queryExecute(buildSQL);
@@ -17,7 +17,7 @@ component output = "false" {
 			'id': { value: id, type: "cf_sql_varchar" }
 		};
 		var buildSQL = "
-			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, users.username AS author
+			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, builds.created, builds.updated, users.username AS author
 			FROM builds, users
 			WHERE  builds.author = users.id AND builds.author = :id AND builds.deleted = 0";
 		return queryExecute(buildSQL, params);
@@ -25,7 +25,7 @@ component output = "false" {
 
 	function getBuild (required string id) {
 		var buildSQL = "
-			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, users.username AS author
+			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, builds.created, builds.updated, users.username AS author
 			FROM builds, users
 			WHERE builds.author = users.id AND builds.id = :id AND builds.deleted = 0";
 		return queryExecute(buildSQL, { "id": { value: id, type: "cf_sql_varchar" }});

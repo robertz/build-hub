@@ -23,5 +23,6 @@
 			</cfloop>
 		</tbody>
 	</table>
+	<p><a href="/builds/create" class="btn btn-primary">Create a Build</a></p>
 </div>
 </cfoutput>

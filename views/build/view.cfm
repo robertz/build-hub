@@ -14,6 +14,12 @@
 		<div class="col-2">Title</div>
 		<div class="col-10">#prc.build.title#</div>
 
+		<div class="col-2">Created</div>
+		<div class="col-10">#dateFormat(prc.build.created, "m/d/yyyy")# at #timeFormat(prc.build.created, "h:mm tt")#</div>
+
+		<div class="col-2">Updated</div>
+		<div class="col-10">#dateFormat(prc.build.updated, "m/d/yyyy")# at #timeFormat(prc.build.updated, "h:mm tt")#</div>
+
 		<div class="col-2">Description</div>
 		<div class="col-10"><pre style="color: white">#prc.build.description#</pre></div>
 

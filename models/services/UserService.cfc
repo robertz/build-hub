@@ -7,13 +7,9 @@ component output = "false" {
 	}
 
 	function hashString (required string strToHash) {
-		var salt = "3c0a4039-5e55-409a-8572f3d52f4062b3";
-		var str = strToHash & ":" & salt;
+		var hashed = strToHash & ":3c0a4039-5e55-409a-8572f3d52f4062b3";
 		var reps = 384;
-		var hashed = str;
-		for (var i = 1; i <= reps; i++) {
-			hashed = lcase(hash(hashed, "SHA-256"));
-		}
+		for (var i = 1; i <= reps; i++) hashed = lcase(hash(hashed, "SHA-256"));
 		return hashed;
 	}
 

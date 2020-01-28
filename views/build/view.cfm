@@ -11,6 +11,9 @@
 		<div class="col-2">Secondary</div>
 		<div class="col-10">#prc.build.secondary#</div>
 
+		<div class="col-2">Title</div>
+		<div class="col-10">#prc.build.title#</div>
+
 		<div class="col-2">Description</div>
 		<div class="col-10"><pre style="color: white">#prc.build.description#</pre></div>
 

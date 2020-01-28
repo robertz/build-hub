@@ -49,4 +49,8 @@ component extends="coldbox.system.EventHandler"{
 		//Place exception handler below:
 	}
 
+	function pageNotFound (event, rc, prc) {
+		event.setView("main/pageNotFound");
+	}
+
 }

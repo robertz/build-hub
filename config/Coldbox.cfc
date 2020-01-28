@@ -36,7 +36,7 @@ component{
 			//Error/Exception Handling
 			invalidHTTPMethodHandler 	= "",
 			exceptionHandler			= "main.onException",
-			invalidEventHandler			= "",
+			invalidEventHandler			= "main.pageNotFound",
 			customErrorTemplate			= "",
 
 			//Application Aspects

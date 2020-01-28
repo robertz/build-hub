@@ -53,10 +53,11 @@ component output = "false" {
 				'secondary': { value: criteria.secondary, type: "cf_sql_varchar" },
 				'title': { value: criteria.title, type: "cf_sql_varchar" },
 				'description': { value: criteria.description, type: "cf_sql_longvarchar" },
+				'updated': { value: now(), type: "cf_sql_timestamp"}
 			};
 			var sqlString = "
 				UPDATE builds
-				SET archetype = :archetype, `primary` = :primary, secondary = :secondary, title = :title, description = :description
+				SET archetype = :archetype, `primary` = :primary, secondary = :secondary, title = :title, description = :description, updated = :updated
 				WHERE id = :id";
 			queryExecute(sqlString, params);
 		}

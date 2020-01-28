@@ -16,28 +16,36 @@ component output = "false" {
 
 	function create (event, rc, prc) {
 		if(client.userId == defaultUser) relocate("main");
+		prc['errMessage'] = "";
 		prc['id'] = "";
 		prc['archetype'] = "";
 		prc['primary'] = "";
 		prc['secondary'] = "";
 		prc['title'] = "";
 		prc['description'] = "";
+
 		event.setView("build/edit");
 	}
 
 	function edit (event, rc, prc) {
 		if(client.userId == defaultUser) relocate("main");
 		if(!rc.keyExists("id")) relocate("main");
-
+		prc['errMessage'] = "";
 		var b = buildService.getBuild(id = rc.id);
 
-		prc['id'] = rc.id;
-		prc['author'] = client.userId;
-		prc['archetype'] = b.archetype;
-		prc['primary'] = b.primary;
-		prc['secondary'] = b.secondary;
-		prc['title'] = b.title;
-		prc['description'] = b.description;
+		// only allow editing of your own builds
+		if(b.authorId != client.userId) {
+			prc['errMessage'] = "You may only edit your builds.";
+		}
+		else{
+			prc['id'] = rc.id;
+			prc['author'] = client.userId;
+			prc['archetype'] = b.archetype;
+			prc['primary'] = b.primary;
+			prc['secondary'] = b.secondary;
+			prc['title'] = b.title;
+			prc['description'] = b.description;
+		}
 
 		event.setView("build/edit");
 	}

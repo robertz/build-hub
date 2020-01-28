@@ -6,7 +6,7 @@ component output = "false" {
 	function index (event, rc, prc) {
 		if(client.userid == defaultUser) relocate("main");
 
-		prc['builds'] = BuildService.getBuildsByAccount( id = client.userId );
+		prc['jsonData']['builds'] = BuildService.getBuildsByAccount( id = client.userId );
 		event.setView("account/index");
 	}
 

@@ -1,20 +1,15 @@
 <cfoutput>
-<div class="content-container">
+<div class="content-container" id="app">
 	<p>City of Heroes Build Database<p>
-
-	<cfloop query="#prc.builds#">
-		<div class="row build-container">
-			<div class="col-2">
-				#primary# /
-				#secondary#
-				#archetype#
-			</div>
-			<div class="col-10">
-				<a href="/build/view/id/#id#">#title#</a><br />
-				#author#
-			</div>
+	<div class="row build-container" v-for="build in builds">
+		<div class="col-2">
+			{{ build.primary }} / {{ build.secondary }} {{ build.archetype }}
 		</div>
-	</cfloop>
-
+		<div class="col-10">
+			<a v-bind:href="'/build/view/id/' + build.id">{{ build.title }}</a><br />
+			{{ build.author }}
+		</div>
+	</div>
 </div>
+<script language="javascript" src="/assets/js/home.js"></script>
 </cfoutput>

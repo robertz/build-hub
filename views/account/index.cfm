@@ -1,5 +1,5 @@
 <cfoutput>
-<div class="content-container">
+<div id="app" class="content-container">
 	<h5>Account Management</h5>
 
 	<h6>Your builds</h6>
@@ -13,16 +13,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<cfloop query="#prc.builds#">
-				<tr>
-					<td><a href="/build/view/id/#id#">#archetype#</a></td>
-					<td>#primary#</td>
-					<td>#secondary#</td>
-					<td>#title#</td>
-				</tr>
-			</cfloop>
+			<tr v-for="build in builds">
+				<td><a v-bind:href="'/build/view/id/' + build.id">{{ build.archetype }}</a></td>
+				<td>{{ build.primary }}</td>
+				<td>{{ build.secondary }}</td>
+				<td>{{ build.title }}</td>
+			</tr>
 		</tbody>
 	</table>
 	<p><a href="/build/create" class="btn btn-primary">Create a Build</a></p>
 </div>
+<script language="javascript" src="/assets/js/account.home.js"></script>
 </cfoutput>

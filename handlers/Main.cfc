@@ -5,7 +5,7 @@ component extends="coldbox.system.EventHandler"{
 
 	// Default Action
 	function index(event,rc,prc){
-		prc['builds'] = BuildService.getBuilds();
+		prc['jsonData']['builds'] = BuildService.getBuilds();
 		event.setView("main/index");
 	}
 

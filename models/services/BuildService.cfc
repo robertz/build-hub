@@ -28,7 +28,7 @@ component output = "false" {
 			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, builds.created, builds.updated, users.username AS author
 			FROM builds, users
 			WHERE builds.author = users.id AND builds.id = :id AND builds.deleted = 0";
-		return queryExecute(buildSQL, { "id": { value: id, type: "cf_sql_varchar" }});
+		return queryExecute(buildSQL, { "id": { value: id, type: "cf_sql_varchar" }}, { returnType: "array" });
 	}
 
 	function putBuild (required struct criteria) { // persist a build

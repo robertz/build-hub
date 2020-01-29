@@ -10,19 +10,18 @@ component output = "false" {
 	function view (event, rc, prc) {
 		if(!rc.keyExists("id")) relocate("main");
 
-		prc['build'] = BuildService.getBuild(rc.id);
+		prc['build'] = BuildService.getBuild(rc.id)[1];
 		event.setView("build/view");
 	}
 
 	function create (event, rc, prc) {
 		if(client.userId == defaultUser) relocate("main");
-		prc['errMessage'] = "";
-		prc['id'] = "";
-		prc['archetype'] = "";
-		prc['primary'] = "";
-		prc['secondary'] = "";
-		prc['title'] = "";
-		prc['description'] = "";
+		prc.jsonData['id'] = "";
+		prc.jsonData['archetype'] = "";
+		prc.jsonData['primary'] = "";
+		prc.jsonData['secondary'] = "";
+		prc.jsonData['title'] = "";
+		prc.jsonData['description'] = "";
 
 		event.setView("build/edit");
 	}
@@ -30,29 +29,18 @@ component output = "false" {
 	function edit (event, rc, prc) {
 		if(client.userId == defaultUser) relocate("main");
 		if(!rc.keyExists("id")) relocate("main");
-		prc['errMessage'] = "";
-		var b = buildService.getBuild(id = rc.id);
+		var b = buildService.getBuild(id = rc.id)[1];
 
-		// only allow editing of your own builds
-		if(b.authorId != client.userId) {
-			prc['errMessage'] = "You may only edit your builds.";
-		}
-		else{
-			prc['id'] = rc.id;
-			prc['author'] = client.userId;
-			prc['archetype'] = b.archetype;
-			prc['primary'] = b.primary;
-			prc['secondary'] = b.secondary;
-			prc['title'] = b.title;
-			prc['description'] = b.description;
-		}
+		prc.jsonData['id'] = rc.id;
+		prc.jsonData['author'] = client.userId;
+		prc.jsonData['archetype'] = b.archetype;
+		prc.jsonData['primary'] = b.primary;
+		prc.jsonData['secondary'] = b.secondary;
+		prc.jsonData['title'] = b.title;
+		prc.jsonData['description'] = b.description;
 
 		event.setView("build/edit");
 	}
 
-	function update (event, rc, prc) {
-		BuildService.putBuild(rc);
-		relocate("main");
-	}
 
 }

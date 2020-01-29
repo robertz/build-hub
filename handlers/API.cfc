@@ -49,4 +49,25 @@ component output = "false" {
 		return res;
 	}
 
+	function delete(event, rc, prc) {
+		var res = {
+			'meta_data': {
+				'code': 200,
+				'message': "success",
+				'status': "success",
+    			'type': "OK"
+			},
+			'errors': [],
+			'response': {}
+		}
+		if(rc.keyExists("id")){
+			try{
+				var b = BuildService.getBuild(id = rc.id)[1];
+				if(b.authorId == client.userId) BuildService.deleteBuild(rc.id);
+			}
+			catch(any e){}
+		}
+		return res;
+	}
+
 }

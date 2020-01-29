@@ -23,6 +23,18 @@ component output = "false" {
 		return queryExecute(buildSQL, params,  { returnType: "array" });
 	}
 
+	function deleteBuild (required string id) {
+		var params = {
+			'id': { value: id, type: "cf_sql_varchar" }
+		};
+		var buildSQL = "
+			UPDATE builds
+			SET deleted = 1
+			WHERE  id = :id";
+		queryExecute(buildSQL, params);
+		return true;
+	}
+
 	function getBuild (required string id) {
 		var buildSQL = "
 			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.description, builds.created, builds.updated, users.username AS author

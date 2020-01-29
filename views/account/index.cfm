@@ -6,6 +6,7 @@
 	<table class="table table-condensed table-dark table-striped">
 		<thead>
 			<tr>
+				<th></th>
 				<th>Archetype</th>
 				<th>Primary</th>
 				<th>Secondary</th>
@@ -14,6 +15,7 @@
 		</thead>
 		<tbody>
 			<tr v-for="build in builds">
+				<td><i class="fas fa-trash-alt" v-on:click="removeBuild( build.id )"></i></td>
 				<td><a v-bind:href="'/build/view/id/' + build.id">{{ build.archetype }}</a></td>
 				<td>{{ build.primary }}</td>
 				<td>{{ build.secondary }}</td>

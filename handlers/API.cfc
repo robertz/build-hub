@@ -5,15 +5,27 @@ component output = "false" {
 	function index(event, rc, prc){
 		var res = {
 			'meta_data': {
-
+				'code': 200,
+				'message': "success",
+				'status': "success",
+    			'type': "OK"
 			},
 			'errors': [],
 			'response': {}
 		}
-		if(rc.keyExists("id")){
-			res.response.append(BuildService.getBuild(id = rc.id)[1]);
-		} else {
-			res.response['builds'] = BuildService.getBuilds();
+
+		try{
+			if(rc.keyExists("id")){
+				res.response.append(BuildService.getBuild(id = rc.id)[1]);
+			} else {
+				res.response['builds'] = BuildService.getBuilds();
+			}
+		}
+		catch(any e){
+			res.meta_data.code = 400;
+			res.meta_data.message = "error";
+			res.meta_data.status = "error";
+			res.meta_data.type = "error";
 		}
 
 		return res;
@@ -24,7 +36,12 @@ component output = "false" {
 			rc.append(deserializeJSON(toString(event.getHTTPContent())));
 		}
 		var res = {
-			'meta_data': {},
+			'meta_data': {
+				'code': 200,
+				'message': "success",
+				'status': "success",
+    			'type': "OK"
+			},
 			'errors': [],
 			'response': {}
 		}

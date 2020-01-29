@@ -27,9 +27,10 @@ component output = "false" {
 	}
 
 	function edit (event, rc, prc) {
-		if(client.userId == defaultUser) relocate("main");
-		if(!rc.keyExists("id")) relocate("main");
+		if(client.userId == defaultUser) relocate("main"); // not logged in
+		if(!rc.keyExists("id")) relocate("main"); // no id present
 		var b = buildService.getBuild(id = rc.id)[1];
+		if(client.userId != b.authorId) relocate("main"); // not the author of the build
 
 		prc.jsonData['id'] = rc.id;
 		prc.jsonData['author'] = client.userId;

@@ -40,9 +40,12 @@ component output = "false" {
 			'title': "",
 			'description': ""
 		};
+		var res = {
+			'isInsert': !criteria.id.len() ? true : false,
+			'authMatch': isInsert ? true : (BuildService.getBuild(id = rc.id)[1].authorId == client.userId)
+		};
 		criteria.append(defaults, false);
-		var isInsert = !criteria.id.len() ? true : false;
-		if(isInsert){ // create build
+		if(res.isInsert){ // create build
 			var params = {
 				'id': { value: lcase(createUUID()), type: "cf_sql_varchar" },
 				'author': { value: client.userId, type: "cf_sql_varchar" },
@@ -69,9 +72,9 @@ component output = "false" {
 				UPDATE builds
 				SET archetype = :archetype, `primary` = :primary, secondary = :secondary, title = :title, description = :description
 				WHERE id = :id";
-			queryExecute(sqlString, params);
+			if(res.authMatch) queryExecute(sqlString, params);
 		}
-		return;
+		return res;
 	}
 
 

@@ -4,6 +4,24 @@
 * ---
 */
 component{
+
+	this.datasources["web"] = {
+		class: 'com.mysql.cj.jdbc.Driver'
+		, bundleName: 'com.mysql.cj'
+		, bundleVersion: '8.0.15'
+		, connectionString: 'jdbc:mysql://127.0.0.1:3306/web?useUnicode=true&characterEncoding=UTF8&serverTimezone=Etc/UTC&autoReconnect=true&useLegacyDatetimeCode=true'
+		, username: 'rob'
+		, password: "encrypted:e8853fe680634af81109b0bbaf9a7c6233f5b78c34b08006306af8789ffa53aa05638877454f1ebb"
+
+		// optional settings
+		, blob:true // default: false
+		, clob:true // default: false
+		, connectionLimit:100 // default:-1
+		, storage:true // default: false
+		, alwaysSetTimeout:true // default: false
+		, validate:false // default: false
+	};
+
 	this.datasource = "web";
 	this.clientManagement = true;
 

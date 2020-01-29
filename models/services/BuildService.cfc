@@ -54,7 +54,7 @@ component output = "false" {
 		};
 		var res = {
 			'isInsert': !criteria.id.len() ? true : false,
-			'authMatch': isInsert ? true : (BuildService.getBuild(id = rc.id)[1].authorId == client.userId)
+			'authMatch': !criteria.id.len() ? true : (getBuild(id = criteria.id)[1].authorId == client.userId)
 		};
 		criteria.append(defaults, false);
 		if(res.isInsert){ // create build

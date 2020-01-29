@@ -2,7 +2,12 @@
 <div id="app" class="content-container">
 	<div class="row">
 		<div class="col-2">Archetype</div>
-		<div class="col-10"><input type="text" v-model="archetype" class="form-control mt-1 mb-1" required /></div>
+		<div class="col-10">
+			<select v-model="archetype" class="form-control" required>
+				<option value="">Select an Archetype</option>
+				<option v-for="at in archetypes" :value="at">{{ at }}</option>
+			</select>
+		</div>
 
 		<div class="col-2">Primary</div>
 		<div class="col-10"><input type="text" v-model="primary" class="form-control mt-1 mb-1" required /></div>

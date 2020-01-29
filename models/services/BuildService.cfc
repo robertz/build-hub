@@ -89,6 +89,24 @@ component output = "false" {
 		return res;
 	}
 
-
+	function getArchetypes () {
+		return [
+			'Blaster',
+			'Controller',
+			'Defender',
+			'Scrapper',
+			'Tank',
+			'Mastermind',
+			'Stalker',
+			'Brute',
+			'Dominator',
+			'Corruptor',
+			'Warshade',
+			'Peacebringer',
+			'Arachnos Soldier',
+			'Arachnos Widow',
+			'Sentinel'
+		];
+	}
 
 }

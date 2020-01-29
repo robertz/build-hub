@@ -15,7 +15,10 @@
 		</thead>
 		<tbody>
 			<tr v-for="build in builds">
-				<td><i class="fas fa-trash-alt" v-on:click="removeBuild( build.id )"></i></td>
+				<td>
+					<i class="fas fa-trash-alt" v-on:click="removeBuild( build.id )"></i>
+					<i class="fas fa-edit" v-on:click="edit( build.id )"></i>
+				</td>
 				<td><a v-bind:href="'/build/view/id/' + build.id">{{ build.archetype }}</a></td>
 				<td>{{ build.primary }}</td>
 				<td>{{ build.secondary }}</td>

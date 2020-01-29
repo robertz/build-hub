@@ -7,7 +7,9 @@ new Vue({
 			primary: window.kdfe.primary,
 			secondary: window.kdfe.secondary,
 			title: window.kdfe.title,
-			description: window.kdfe.description
+			description: window.kdfe.description,
+
+			archetypes: window.kdfe.at
 		}
 	},
 	methods: {

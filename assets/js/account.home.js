@@ -6,7 +6,7 @@ new Vue({
 		}
 	},
 	methods: {
-		removeBuild: function ( buildId ) {
+		removeBuild: function (buildId) {
 
 			fetch(`/api/build/${buildId}`, {
 				method: 'DELETE',
@@ -15,6 +15,9 @@ new Vue({
 			.then(res => {
 				document.location = document.location.href
 			});
+		},
+		edit: function (buildId) {
+			document.location = `/build/edit/id/${buildId}`
 		}
 	}
 })

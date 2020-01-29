@@ -16,6 +16,9 @@ component output = "false" {
 
 	function create (event, rc, prc) {
 		if(client.userId == defaultUser) relocate("main");
+
+		prc.jsonData['at'] = BuildService.getArchetypes();
+
 		prc.jsonData['id'] = "";
 		prc.jsonData['archetype'] = "";
 		prc.jsonData['primary'] = "";
@@ -31,6 +34,8 @@ component output = "false" {
 		if(!rc.keyExists("id")) relocate("main"); // no id present
 		var b = buildService.getBuild(id = rc.id)[1];
 		if(client.userId != b.authorId) relocate("main"); // not the author of the build
+
+		prc.jsonData['at'] = BuildService.getArchetypes();
 
 		prc.jsonData['id'] = rc.id;
 		prc.jsonData['author'] = client.userId;

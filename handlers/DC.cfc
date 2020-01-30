@@ -3,6 +3,7 @@ component output = "false" {
 	property name = "BuildService" inject;
 	property name = "UserService" inject;
 
+	// builds getter
 	function index(event, rc, prc){
 		var res = {
 			'meta_data': {
@@ -14,8 +15,7 @@ component output = "false" {
 			'errors': [],
 			'response': {}
 		}
-
-		try{
+		try {
 			if(rc.keyExists("id")){
 				res.response.append(BuildService.getBuild(id = rc.id)[1]);
 			} else {
@@ -28,10 +28,10 @@ component output = "false" {
 			res.meta_data.status = "error";
 			res.meta_data.type = "error";
 		}
-
 		return res;
 	}
 
+	// update build
 	function update (event, rc, prc) {
 		// merge http content to rc
 		if(isJSON(toString(event.getHTTPContent()))){
@@ -47,10 +47,22 @@ component output = "false" {
 			'errors': [],
 			'response': {}
 		}
-		BuildService.putBuild(rc);
+		// validate the user owns the build
+		var b = BuildService.getBuild(id = rc.id);
+		if(b.len() && b[1].authorId == client.userId) {
+			BuildService.putBuild(rc);
+		} else {
+			res['meta_data'] = {
+				'code': 401,
+				'message': "You are not authorized to update the build",
+				'status': "Unauthorized",
+    			'type': "error"
+			};
+		}
 		return res;
 	}
 
+	// delete build
 	function delete(event, rc, prc) {
 		var res = {
 			'meta_data': {
@@ -63,11 +75,17 @@ component output = "false" {
 			'response': {}
 		}
 		if(rc.keyExists("id")){
-			try{
-				var b = BuildService.getBuild(id = rc.id)[1];
-				if(b.authorId == client.userId) BuildService.deleteBuild(rc.id);
+			var b = BuildService.getBuild(id = rc.id);
+			if(b.len() && b[1].authorId == client.userId){
+				BuildService.deleteBuild(rc.id);
+			} else {
+				res['meta_data'] = {
+					'code': 401,
+					'message': "You are not authorized to update the build",
+					'status': "Unauthorized",
+					'type': "error"
+				};
 			}
-			catch(any e){}
 		}
 		return res;
 	}
@@ -98,7 +116,6 @@ component output = "false" {
 		if(isJSON(toString(event.getHTTPContent()))){
 			rc.append(deserializeJSON(toString(event.getHTTPContent())));
 		}
-
 		// token was not passed in or doesn't match
 		if(!rc.keyExists("token") || rc.token != client.cfid){
 			return {
@@ -112,7 +129,6 @@ component output = "false" {
 				'response': {}
 			}
 		}
-
 		var res = {
 			'meta_data': {
 				'code': 200,
@@ -123,14 +139,12 @@ component output = "false" {
 			'errors': [],
 			'response': {}
 		};
-
 		var qRes = {};
 		try{
 			qRes.append(UserService.createAccount(rc.user, rc.pass));
 			client['userId'] = qRes.sqlParameters[1];
 		}
 		catch(any e){}
-
 		return res;
 	}
 

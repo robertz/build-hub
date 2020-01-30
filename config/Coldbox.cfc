@@ -139,7 +139,7 @@ component{
 	* Development environment
 	*/
 	function development(){
-		// coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
+		coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
 	}
 
 }

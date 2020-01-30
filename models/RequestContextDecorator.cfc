@@ -16,6 +16,7 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 
 		prc['jsonData'] = {};
 
+		// default seo data
 		prc['seo'] = {
 			"og:title": "KISDigital.com: Build Hub",
 			"og:type": "Website",

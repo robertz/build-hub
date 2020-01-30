@@ -20,7 +20,7 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 			"og:title": "KISDigital.com: Build Hub",
 			"og:type": "Website",
 			"og:url": "https://hub.kisdigital.com",
-			"og:image": "https://hub.kisdigital.com/assets/images/city-of-heroes-hd-wallpapers-32893-8207197.jpg",
+			"og:image": "https://hub.kisdigital.com/assets/images/sharer.jpg",
 			"og:description": "A database of character builds for City of Heroes and City of Villains",
 			"og:locale": "en_US",
 			"og:site_name": "KISDigital.com Build Hub"

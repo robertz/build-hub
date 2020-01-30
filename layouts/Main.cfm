@@ -6,11 +6,9 @@
 	<title>KISDigital.com: Build Hub</title>
 	<meta name="description" content="A database of character builds for City of Heroes and City of Villains">
     <meta name="author" content="KISDigital.com">
-
 	<cfloop collection="#prc.seo#" index="prop">
 		<meta property="#prop#" content="#prc.seo[prop]#">
 	</cfloop>
-
 	<!---Base URL --->
 	<base href="#prc.baseURL#" />
 	<!---css --->

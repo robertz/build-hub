@@ -24,7 +24,7 @@ new Vue({
 				description: this.description
 			}
 
-			fetch('/api/build', {
+			fetch('/dc/build', {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ new Vue({
 			})
 			.then(res => res.json())
 			.then(res => {
-				document.location = '/'
+				document.location = '/account'
 			});
 		}
 	}

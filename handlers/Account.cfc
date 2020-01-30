@@ -10,4 +10,9 @@ component output = "false" {
 		event.setView("account/index");
 	}
 
+	function join (event, rc, prc) {
+		prc['jsonData']['token'] = client.cfid;
+		event.setView("account/join");
+	}
+
 }

@@ -14,14 +14,18 @@ component{
 		 *
 		 */
 
-		route("/api/build/:id?")
+		route("/dc/build/:id?")
 			.withAction({
 				GET: 'index',
 				POST: 'update',
 				PUT: 'update',
 				DELETE: 'delete'
 			})
-			.toHandler("api");
+			.toHandler("dc");
+
+
+		post("/dc/account/create")
+			.to("dc.createAccount")
 
 
 		// Conventions based routing

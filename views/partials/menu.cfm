@@ -20,6 +20,7 @@
 						</div>
 						<div class="col">
 							<input type="submit" class="btn btn-primary" value="Login" />
+							<input type="button" class="btn btn-success join-button" value="Join" />
 						</div>
 					</div>
 				</form>
@@ -27,4 +28,12 @@
 		</cfif>
 	</div>
 </div>
+<script language="javascript">
+$(document).ready(function(){
+	$(document)
+	 	.on('click', '.join-button', function(e){
+			document.location = '/account/join'
+		})
+});
+</script>
 </cfoutput>

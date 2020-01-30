@@ -9,8 +9,13 @@ component output = "false" {
 
 	function view (event, rc, prc) {
 		if(!rc.keyExists("id")) relocate("main");
+		try{
+			prc['build'] = BuildService.getBuild(rc.id)[1];
+		}
+		catch(any e) {
+			relocate("main");
+		}
 
-		prc['build'] = BuildService.getBuild(rc.id)[1];
 		event.setView("build/view");
 	}
 
@@ -32,7 +37,13 @@ component output = "false" {
 	function edit (event, rc, prc) {
 		if(client.userId == defaultUser) relocate("main"); // not logged in
 		if(!rc.keyExists("id")) relocate("main"); // no id present
-		var b = buildService.getBuild(id = rc.id)[1];
+		try{
+			var b = buildService.getBuild(id = rc.id)[1];
+		}
+		catch(any e) {
+			relocate("main");
+		}
+
 		if(client.userId != b.authorId) relocate("main"); // not the author of the build
 
 		prc.jsonData['at'] = BuildService.getArchetypes();

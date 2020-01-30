@@ -8,7 +8,7 @@ new Vue({
 	methods: {
 		removeBuild: function (buildId) {
 
-			fetch(`/api/build/${buildId}`, {
+			fetch(`/dc/build/${buildId}`, {
 				method: 'DELETE',
 			})
 			.then(res => res.json())

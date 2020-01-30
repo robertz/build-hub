@@ -2,6 +2,10 @@
 <div id="app" class="content-container">
 	<h5>Account Management</h5>
 
+	<p>
+		<a href="/main/logout" class="btn btn-danger">Log Out</a>
+	</p>
+
 	<h6>Your builds</h6>
 	<table class="table table-condensed table-dark table-striped">
 		<thead>

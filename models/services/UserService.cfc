@@ -22,4 +22,26 @@ component output = "false" {
 		return q.recordCount ? q.id : variables.defaultUser;
 	}
 
+	function userExists (required string user) {
+		var params = {
+			'user': { value: lcase(user), type: "cf_sql_varchar" }
+		};
+		var q = queryExecute("SELECT * FROM users WHERE LCASE(username) = :user", params);
+		return q.recordCount ? true : false;
+	}
+
+	function createAccount(required string user, required string pass) {
+		var params = {
+			'id': { value: lcase(createUUID()), type: "cf_sql_varchar" },
+			'user': { value: lcase(user), type: "cf_sql_varchar" },
+			'pass': { value: hashString(pass), type: "cf_sql_varchar" }
+		};
+		var userSQL = "
+			INSERT into users (id, username, password) VALUES (:id, :user, :pass)
+		";
+		var res = "";
+		var r = queryExecute(userSQL, params, { result: "res" });
+		return res;
+	}
+
 }

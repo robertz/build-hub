@@ -47,10 +47,16 @@ component extends="coldbox.system.EventHandler"{
 		//Grab Exception From private request collection, placed by ColdBox Exception Handling
 		var exception = prc.exception;
 		//Place exception handler below:
+
+		setNextEvent("main/uhoh");
 	}
 
 	function pageNotFound (event, rc, prc) {
 		event.setView("main/pageNotFound");
+	}
+
+	function uhoh (event, rc, prc) {
+		event.setView("main/uhoh");
 	}
 
 }

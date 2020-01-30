@@ -8,7 +8,7 @@
     <meta name="author" content="KISDigital.com">
 
 	<cfloop collection="#prc.seo#" index="prop">
-		<meta name="#prop#" content="#prc.seo[prop]#">
+		<meta property="#prop#" content="#prc.seo[prop]#">
 	</cfloop>
 
 	<!---Base URL --->

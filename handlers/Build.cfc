@@ -13,7 +13,7 @@ component output = "false" {
 			prc['build'] = BuildService.getBuild(rc.id)[1];
 
 			prc['seo']['og:type'] = "article";
-			prc['seo']['og:title'] = prc.build.title;
+			prc['seo']['og:description'] = prc.build.title;
 
 		}
 		catch(any e) {

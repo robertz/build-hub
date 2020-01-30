@@ -48,7 +48,7 @@ component extends="coldbox.system.EventHandler"{
 		var exception = prc.exception;
 		//Place exception handler below:
 
-		setNextEvent("main/uhoh");
+		// setNextEvent("main/uhoh");
 	}
 
 	function pageNotFound (event, rc, prc) {

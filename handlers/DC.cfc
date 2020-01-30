@@ -48,9 +48,8 @@ component output = "false" {
 			'response': {}
 		}
 		// validate the user owns the build
-
-		var b = rc.keyExists("id") ? BuildService.getBuild(id = rc.id) : [];
-		if((b.len() && b[1].authorId == client.userId) || !rc.keyExists("id")) {
+		var b = (rc.keyExists("id") && rc.id.len()) ? BuildService.getBuild(id = rc.id) : [];
+		if((b.len() && b[1].authorId == client.userId) || !rc.id.len() ) {
 			BuildService.putBuild(rc);
 		} else {
 			res['meta_data'] = {

@@ -13,7 +13,7 @@ new Vue({
 			fetch('/dc/validateLogin/user/' + this.user )
 				.then(res => res.json())
 				.then(res => {
-					this.valid = !!(res.meta_data.code == 200)
+					this.valid = !!(res.meta_data.code === 200)
 				});
 		},
 		createAccount: function () {

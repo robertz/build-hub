@@ -1,5 +1,7 @@
 component output = "false" {
 
+	property name = "AntiSamy" inject = "antisamy@cbantisamy";
+
 	function init () {
 		return this;
 	}
@@ -63,11 +65,11 @@ component output = "false" {
 			var params = {
 				'id': { value: lcase(createUUID()), type: "cf_sql_varchar" },
 				'author': { value: client.userId, type: "cf_sql_varchar" },
-				'archetype': { value: criteria.archetype, type: "cf_sql_varchar" },
-				'primary': { value: criteria.primary, type: "cf_sql_varchar" },
-				'secondary': { value: criteria.secondary, type: "cf_sql_varchar" },
-				'title': { value: criteria.title, type: "cf_sql_varchar" },
-				'description': { value: criteria.description, type: "cf_sql_longvarchar" },
+				'archetype': { value: AntiSamy.clean(criteria.archetype), type: "cf_sql_varchar" },
+				'primary': { value: AntiSamy.clean(criteria.primary), type: "cf_sql_varchar" },
+				'secondary': { value: AntiSamy.clean(criteria.secondary), type: "cf_sql_varchar" },
+				'title': { value: AntiSamy.clean(criteria.title), type: "cf_sql_varchar" },
+				'description': { value: AntiSamy.clean(criteria.description), type: "cf_sql_longvarchar" },
 			};
 			var sqlString = "
 				INSERT INTO builds (id, author, archetype, `primary`, secondary, title, description)
@@ -76,11 +78,11 @@ component output = "false" {
 		} else {
 			var params = { // update build
 				'id': { value: criteria.id, type: "cf_sql_varchar" },
-				'archetype': { value: criteria.archetype, type: "cf_sql_varchar" },
-				'primary': { value: criteria.primary, type: "cf_sql_varchar" },
-				'secondary': { value: criteria.secondary, type: "cf_sql_varchar" },
-				'title': { value: criteria.title, type: "cf_sql_varchar" },
-				'description': { value: criteria.description, type: "cf_sql_longvarchar" }
+				'archetype': { value: AntiSamy.clean(criteria.archetype), type: "cf_sql_varchar" },
+				'primary': { value: AntiSamy.clean(criteria.primary), type: "cf_sql_varchar" },
+				'secondary': { value: AntiSamy.clean(criteria.secondary), type: "cf_sql_varchar" },
+				'title': { value: AntiSamy.clean(criteria.title), type: "cf_sql_varchar" },
+				'description': { value: AntiSamy.clean(criteria.description), type: "cf_sql_longvarchar" }
 			};
 			var sqlString = "
 				UPDATE builds
@@ -109,6 +111,308 @@ component output = "false" {
 			'Arachnos Widow',
 			'Sentinel'
 		];
+	}
+
+	function getPowersets () {
+		return {
+			'Blaster': {
+				'primary': [
+					'Archery',
+					'Assault Rifle',
+					'Beam Rifle',
+					'Dark Blast',
+					'Dual Pistols',
+					'Electrical Blast',
+					'Energy Blast',
+					'Ice Blast',
+					'Psychic Blast',
+					'Radiation Blast',
+					'Sonic Attack',
+					'Water Blast'
+				],
+				'secondary': [
+					'Darkness Manipulation',
+					'Devices',
+					'Electricity Manipulation',
+					'Energy Manipulation',
+					'Fire Manipulation',
+					'Ice Manipulation',
+					'Martial Combat',
+					'Mental Manipulation'
+				]
+			},
+			'Brute': {
+				'primary': [
+					'Battle Axe',
+					'Broad Sword',
+					'Claws',
+					'Dark Melee',
+					'Electrical Melee',
+					'Energy Melee',
+					'Fiery Melee',
+					'Katana',
+					'Kinetic Melee',
+					'Psionic Melee',
+					'Radiation Melee',
+					'Savage Melee',
+					'Staff Fighting',
+					'Stone Melee',
+					'Street Justice',
+					'Super Strength',
+					'Titan Weapons',
+					'War Mace'
+				],
+				'secondary': [
+					'Bio Armor',
+					'Dark Armor',
+					'Electric Armor',
+					'Energy Aura',
+					'Fiery Aura',
+					'Invulnerability',
+					'Radiation Armor',
+					'Regeneration',
+					'Shield Defense',
+					'Stone Armor',
+					'Super Reflexes',
+					'Willpower'
+				]
+			},
+			'Controller': {
+				'primary': [
+					'Darkness Control',
+					'Earth Control',
+					'Electric Control',
+					'Fire Control',
+					'Gravity Control',
+					'Ice Control',
+					'Illusion Control',
+					'Mind Control',
+					'Plant Control',
+					'Wind Control'
+				],
+				'secondary': [
+					'Cold Domination',
+					'Darkness Affinity',
+					'Empathy',
+					'Force Field',
+					'Kinetics',
+					'Nature Affinity',
+					'Poison',
+					'Radiation Emission',
+					'Sonic Resonance',
+					'Storm Summoning',
+					'Thermal Radiation',
+					'Time Manipulation',
+					'Trick Arrow'
+				]
+			},
+			'Corruptor': {
+				'primary': [
+					'Archery',
+					'Assault Rifle',
+					'Beam Rifle',
+					'Dark Blast',
+					'Dual Pistols',
+					'Electrical Blast',
+					'Energy Blast',
+					'Ice Blast',
+					'Psychic Blast',
+					'Radiation Blast',
+					'Sonic Attack',
+					'Water Blast'
+				],
+				'secondary': [
+					'Cold Domination',
+					'Dark Miasma',
+					'Kinetics',
+					'Nature Affinity',
+					'Pain Domination',
+					'Poison',
+					'Radiation Emission',
+					'Sonic Resonance',
+					'Storm Summoning',
+					'Thermal Radiation',
+					'Time Manipulation',
+					'Traps',
+					'Trick Arrow'
+				]
+			},
+			'Defender': {
+				'primary': [
+					'Cold Domination',
+					'Dark Miasma',
+					'Empathy',
+					'Force Field',
+					'Kinetics',
+					'Radiation Emission',
+					'Sonic Resonance',
+					'Storm Summoning',
+					'Time Manipulation',
+					'Traps',
+					'Trick Arrow'
+				],
+				'secondary': [
+					'Archery',
+					'Assault Rifle',
+					'Beam Rifle',
+					'Dark Blast',
+					'Dual Pistols',
+					'Electrical Blast',
+					'Energy Blast',
+					'Ice Blast',
+					'Psychic Blast',
+					'Radiation Blast',
+					'Sonic Attack',
+					'Water Blast'
+				]
+			},
+			'Dominator': {
+				'primary': [
+					'Darkness Control',
+					'Earth Control',
+					'Electric Control',
+					'Fire Control',
+					'Gravity Control',
+					'Ice Control',
+					'Mind Control',
+					'Plant Control',
+					'Wind Control'
+				],
+				'secondary': [
+					'Dark Assault',
+					'Earth Assault',
+					'Electricity Assault',
+					'Energy Assault',
+					'Fiery Assault',
+					'Icy Assault',
+					'Martial Assault',
+					'Psionic Assault',
+					'Thorny Assault'
+				]
+			},
+			'Mastermind': {
+				'primary': [
+					'Beast Mastery',
+					'Demon Summoning',
+					'Mercenaries',
+					'Necromancy',
+					'Ninjas',
+					'Robotics',
+					'Thugs'
+				],
+				'secondary': [
+					'Dark Miasma',
+					'Force Field',
+					'Nature Affinity',
+					'Pain Domination',
+					'Poison',
+					'Sonic Resonance',
+					'Storm Summoning',
+					'Thermal Radiation',
+					'Time Manipulation',
+					'Traps',
+					'Trick Arrow',
+				]
+			},
+			'Scrapper': {
+				'primary': [
+					'Battle Axe',
+					'Broad Sword',
+					'Claws',
+					'Dark Melee',
+					'Dual Blades',
+					'Electrical Melee',
+					'Fiery Melee',
+					'Katana',
+					'Kinetic Melee',
+					'Psionic Melee',
+					'Radiation Melee',
+					'Savage Melee',
+					'Spines',
+					'Staff Fighting',
+					'Street Justice',
+					'Titan Weapons',
+					'War Mace'
+				],
+				'secondary': [
+					'Bio Armor',
+					'Dark Armor',
+					'Electric Armor',
+					'Energy Aura',
+					'Fiery Aura',
+					'Invulnerability',
+					'Radiation Armor',
+					'Regeneration',
+					'Shield Defense',
+					'Super Reflexes',
+					'Willpower'
+				]
+			},
+			'Stalker': {
+				'primary': [
+					'Broad Sword',
+					'Claws',
+					'Dark Melee',
+					'Dual Blades',
+					'Electrical Melee',
+					'Energy Melee',
+					'Kinetic Melee',
+					'Ninja Blade',
+					'Psionic Melee',
+					'Radiation Melee',
+					'Savage Melee',
+					'Spines',
+					'Staff Fighting',
+					'Street Justice'
+				],
+				'secondary': [
+					'Bio Armor',
+					'Dark Armor',
+					'Electric Armor',
+					'Energy Aura',
+					'Ice Armor',
+					'Ninjitsu',
+					'Radiation Armor',
+					'Regeneration',
+					'Super Reflexes',
+					'Willpower'
+				]
+			},
+			'Tanker': {
+				'primary': [
+					'Bio Armor',
+					'Dark Armor',
+					'Electric Armor',
+					'Fiery Aura',
+					'Ice Armor',
+					'Invulnerability',
+					'Radiation Armor',
+					'Shield Defense',
+					'Stone Armor',
+					'Super Reflexes',
+					'Willpower'
+				],
+				'secondary': [
+					'Battle Axe',
+					'Dark Melee',
+					'Dual Blades',
+					'Electrical Melee',
+					'Energy Melee',
+					'Fiery Melee',
+					'Ice Melee',
+					'Kinetic Melee',
+					'Psionic Melee',
+					'Radiation Melee',
+					'Savage Melee',
+					'Staff Fighting',
+					'Stone Melee',
+					'Street Justice',
+					'Super Strength',
+					'Titan Weapons',
+					'War Mace'
+				]
+			}
+		}
 	}
 
 }

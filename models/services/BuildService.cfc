@@ -8,7 +8,8 @@ component output = "false" {
 		var buildSQL = "
 			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.created, builds.updated, users.username AS author
 			FROM builds, users
-			WHERE builds.author = users.id AND builds.deleted = 0";
+			WHERE builds.author = users.id AND builds.deleted = 0
+			ORDER BY builds.updated DESC";
 		return queryExecute(sql = buildSQL, options = { returnType: "array" });
 	}
 
@@ -19,7 +20,8 @@ component output = "false" {
 		var buildSQL = "
 			SELECT builds.id, builds.author AS authorId, builds.archetype, builds.primary, builds.secondary, builds.title, builds.created, builds.updated, users.username AS author
 			FROM builds, users
-			WHERE  builds.author = users.id AND builds.author = :id AND builds.deleted = 0";
+			WHERE  builds.author = users.id AND builds.author = :id AND builds.deleted = 0
+			ORDER BY builds.updated DESC";
 		return queryExecute(buildSQL, params,  { returnType: "array" });
 	}
 

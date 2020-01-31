@@ -26,5 +26,5 @@
 
 	</div>
 </div>
-<script src="/assets/js/build.editor.js"></script>
+<script src="/assets/js/build.editor.js?v=#application.jsver#"></script>
 </cfoutput>

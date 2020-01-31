@@ -8,4 +8,7 @@ component output = "false" {
 		abort;
 	}
 
+	function robsHood (event, rc, prc) {
+		writeDump(var="#application#", abort = true, label = "label");
+	}
 }

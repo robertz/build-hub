@@ -11,5 +11,5 @@
 		</div>
 	</div>
 </div>
-<script language="javascript" src="/assets/js/home.js"></script>
+<script language="javascript" src="/assets/js/home.js?v=#application.jsver#"></script>
 </cfoutput>

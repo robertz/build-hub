@@ -22,7 +22,7 @@ component extends="coldbox.system.EventHandler"{
 	/************************************** IMPLICIT ACTIONS *********************************************/
 
 	function onAppInit(event,rc,prc){
-
+		application['jsver'] = lcase(createUUID());
 	}
 
 	function onRequestStart(event,rc,prc){

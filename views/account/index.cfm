@@ -32,5 +32,5 @@
 	</table>
 	<p><a href="/build/create" class="btn btn-primary">Create a Build</a></p>
 </div>
-<script language="javascript" src="/assets/js/account.home.js"></script>
+<script language="javascript" src="/assets/js/account.home.js?v=#application.jsver#"></script>
 </cfoutput>

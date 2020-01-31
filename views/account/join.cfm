@@ -30,5 +30,5 @@
 
 	</div>
 </div>
-<script language="javascript" src="/assets/js/account.create.js"></script>
+<script language="javascript" src="/assets/js/account.create.js?v=#application.jsver#"></script>
 </cfoutput>

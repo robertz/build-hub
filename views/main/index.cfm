@@ -8,9 +8,24 @@
 			<div class="row">
 				<div class="col-3">
 					<select class="form-control" v-model="filteredAT">
-						<option value="">All</option>
+						<option value="">Filter by AT</option>
 						<option v-for="at in distinctATs" :value="at">{{ at }}</option>
 					</select>
+				</div>
+				<div class="col-3">
+					<select class="form-control" v-model="filteredPrimary">
+						<option value="">Filter by Primary</option>
+						<option v-for="dp in distinctPrimaries" :value="dp">{{ dp }}</option>
+					</select>
+				</div>
+				<div class="col-3">
+					<select class="form-control" v-model="filteredSecondary">
+						<option value="">Filter by Secondary</option>
+						<option v-for="ds in distinctSecondaries" :value="ds">{{ ds }}</option>
+					</select>
+				</div>
+				<div class="col-3">
+					<button class="btn btn-primary" v-on:click="filteredAT = ''; filteredPrimary = ''; filteredSecodary = '';">Reset</button>
 				</div>
 			</div>
 		</div>

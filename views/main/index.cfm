@@ -25,7 +25,7 @@
 					</select>
 				</div>
 				<div class="col-3">
-					<button class="btn btn-primary" v-on:click="filteredAT = ''; filteredPrimary = ''; filteredSecodary = '';">Reset</button>
+					<button class="btn btn-primary" v-on:click="filteredAT = ''; filteredPrimary = ''; filteredSecondary = '';">Reset</button>
 				</div>
 			</div>
 		</div>

@@ -10,7 +10,7 @@ component output = "false" {
 			FROM builds, users
 			WHERE builds.author = users.id AND builds.deleted = 0
 			ORDER BY builds.updated DESC";
-		return queryExecute(sql = buildSQL, options = { returnType: "array" });
+		return queryExecute(buildSQL, [], { returnType: "array" });
 	}
 
 	function getBuildsByAccount (required string id) {
@@ -22,7 +22,7 @@ component output = "false" {
 			FROM builds, users
 			WHERE  builds.author = users.id AND builds.author = :id AND builds.deleted = 0
 			ORDER BY builds.updated DESC";
-		return queryExecute(buildSQL, params,  { returnType: "array" });
+		return queryExecute(buildSQL, params, { returnType: "array" });
 	}
 
 	function deleteBuild (required string id) {

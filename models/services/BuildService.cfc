@@ -155,6 +155,7 @@ component output = "false" {
 					'Psionic Melee',
 					'Radiation Melee',
 					'Savage Melee',
+					'Spines',
 					'Staff Fighting',
 					'Stone Melee',
 					'Street Justice',

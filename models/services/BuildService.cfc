@@ -375,6 +375,7 @@ component output = "false" {
 					'Ninjitsu',
 					'Radiation Armor',
 					'Regeneration',
+					'Shield Defense',
 					'Super Reflexes',
 					'Willpower'
 				]

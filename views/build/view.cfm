@@ -1,28 +1,43 @@
 <cfoutput>
-<div class="content-container">
-	<div class="row">
+<div class="content-container table-responsive">
 
-		<div class="col-2">Archetype</div>
-		<div class="col-10">#prc.build.archetype#</div>
+	<table class="table table-dark table-bordered">
+		<tr>
+			<td style="width: 175px;">Archetype</td>
+			<td>#prc.build.archetype#</td>
+		</tr>
 
-		<div class="col-2">Primary</div>
-		<div class="col-10">#prc.build.primary#</div>
+		<tr>
+			<td>Primary</td>
+			<td>#prc.build.primary#</td>
+		</tr>
 
-		<div class="col-2">Secondary</div>
-		<div class="col-10">#prc.build.secondary#</div>
+		<tr>
+			<td>Secondary</td>
+			<td>#prc.build.secondary#</td>
+		</tr>
 
-		<div class="col-2">Title</div>
-		<div class="col-10">#prc.build.title#</div>
+		<tr>
+			<td>Title</td>
+			<td>#prc.build.title#</td>
+		</tr>
 
-		<div class="col-2">Created</div>
-		<div class="col-10">#dateFormat(prc.build.created, "m/d/yyyy")# at #timeFormat(prc.build.created, "h:mm tt")#</div>
+		<tr>
+			<td>Created</td>
+			<td>#dateFormat(prc.build.created, "dd-mmm-yy")# at #timeFormat(prc.build.created, "h:mm tt")#</td>
+		</tr>
 
-		<div class="col-2">Updated</div>
-		<div class="col-10">#dateFormat(prc.build.updated, "m/d/yyyy")# at #timeFormat(prc.build.updated, "h:mm tt")#</div>
+		<tr>
+			<td>Updated</td>
+			<td>#dateFormat(prc.build.updated, "dd-mmm-yy")# at #timeFormat(prc.build.updated, "h:mm tt")#</td>
+		</tr>
 
-		<div class="col-2">Description</div>
-		<div class="col-10"><pre style="color: white">#prc.build.description#</pre></div>
-
-	</div>
+		<tr>
+			<td>Description</td>
+			<td>
+				<pre class="text-white">#prc.build.description#</pre>
+			</td>
+		</tr>
+	</table>
 </div>
 </cfoutput>

@@ -2,6 +2,7 @@ component output = "false" {
 
 	property name = "BuildService" inject;
 	property name = "UserService" inject;
+	property name = "AntiSamy" inject = "antisamy@cbantisamy";
 
 	// builds getter
 	function index(event, rc, prc){
@@ -31,11 +32,16 @@ component output = "false" {
 		return res;
 	}
 
-	// update build
+	// create/update build
+	// needs to be cleaned up
 	function update (event, rc, prc) {
 		// merge http content to rc
 		if(isJSON(toString(event.getHTTPContent()))){
 			rc.append(deserializeJSON(toString(event.getHTTPContent())));
+		}
+		// sanitize all inputs
+		for(var k in rc){
+			rc[k] = AntiSamy.clean(rc[k]);
 		}
 		var res = {
 			'meta_data': {

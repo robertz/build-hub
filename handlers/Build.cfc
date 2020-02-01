@@ -28,9 +28,9 @@ component output = "false" {
 		if(client.userId == defaultUser) relocate("main");
 		prc.jsonData['at'] = BuildService.getArchetypes();
 		prc.jsonData['id'] = "";
-		prc.jsonData['archetype'] = "";
-		prc.jsonData['primary'] = "";
-		prc.jsonData['secondary'] = "";
+		prc.jsonData['archetype'] = "Blaster";
+		prc.jsonData['primary'] = "Archery";
+		prc.jsonData['secondary'] = "Atomic Manipulation";
 		prc.jsonData['title'] = "";
 		prc.jsonData['description'] = "";
 

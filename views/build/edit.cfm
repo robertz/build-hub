@@ -3,8 +3,7 @@
 	<div class="row">
 		<div class="col-2">Archetype</div>
 		<div class="col-10">
-			<select v-model="archetype" class="form-control" required>
-				<option value="">Select an Archetype</option>
+			<select v-model="archetype" v-on:change="adjustPools" class="form-control" required>
 				<option v-for="at in archetypes" :value="at">{{ at }}</option>
 			</select>
 		</div>

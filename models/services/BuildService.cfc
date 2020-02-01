@@ -1,7 +1,5 @@
 component output = "false" {
 
-	property name = "AntiSamy" inject = "antisamy@cbantisamy";
-
 	function init () {
 		return this;
 	}
@@ -65,11 +63,11 @@ component output = "false" {
 			var params = {
 				'id': { value: lcase(createUUID()), type: "cf_sql_varchar" },
 				'author': { value: client.userId, type: "cf_sql_varchar" },
-				'archetype': { value: AntiSamy.clean(criteria.archetype), type: "cf_sql_varchar" },
-				'primary': { value: AntiSamy.clean(criteria.primary), type: "cf_sql_varchar" },
-				'secondary': { value: AntiSamy.clean(criteria.secondary), type: "cf_sql_varchar" },
-				'title': { value: AntiSamy.clean(criteria.title), type: "cf_sql_varchar" },
-				'description': { value: AntiSamy.clean(criteria.description), type: "cf_sql_longvarchar" },
+				'archetype': { value: criteria.archetype, type: "cf_sql_varchar" },
+				'primary': { value: criteria.primary, type: "cf_sql_varchar" },
+				'secondary': { value: criteria.secondary, type: "cf_sql_varchar" },
+				'title': { value: criteria.title, type: "cf_sql_varchar" },
+				'description': { value: criteria.description, type: "cf_sql_longvarchar" },
 			};
 			var sqlString = "
 				INSERT INTO builds (id, author, archetype, `primary`, secondary, title, description)
@@ -78,11 +76,11 @@ component output = "false" {
 		} else {
 			var params = { // update build
 				'id': { value: criteria.id, type: "cf_sql_varchar" },
-				'archetype': { value: AntiSamy.clean(criteria.archetype), type: "cf_sql_varchar" },
-				'primary': { value: AntiSamy.clean(criteria.primary), type: "cf_sql_varchar" },
-				'secondary': { value: AntiSamy.clean(criteria.secondary), type: "cf_sql_varchar" },
-				'title': { value: AntiSamy.clean(criteria.title), type: "cf_sql_varchar" },
-				'description': { value: AntiSamy.clean(criteria.description), type: "cf_sql_longvarchar" }
+				'archetype': { value: criteria.archetype, type: "cf_sql_varchar" },
+				'primary': { value: criteria.primary, type: "cf_sql_varchar" },
+				'secondary': { value: criteria.secondary, type: "cf_sql_varchar" },
+				'title': { value: criteria.title, type: "cf_sql_varchar" },
+				'description': { value: criteria.description, type: "cf_sql_longvarchar" }
 			};
 			var sqlString = "
 				UPDATE builds

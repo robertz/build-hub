@@ -15,8 +15,12 @@ new Vue({
 		}
 	},
 	methods: {
+		adjustPools: function () {
+			// if we switch powersets default to the first power
+			this.primary = (this.primary in this.pools[this.archetype].primary) ? this.primary : this.pools[this.archetype].primary[0]
+			this.secondary = (this.secondary in this.pools[this.archetype].secondary) ? this.secondary : this.pools[this.archetype].secondary[0]
+		},
 		submitForm: function () {
-
 			var postBody = {
 				id: this.id,
 				archetype: this.archetype,
@@ -25,7 +29,6 @@ new Vue({
 				title: this.title,
 				description: this.description
 			}
-
 			fetch('/dc/build', {
 				method: 'PUT',
 				headers: {

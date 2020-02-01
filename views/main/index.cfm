@@ -34,8 +34,9 @@
 	<table class="table table-dark table-striped">
 		<thead>
 			<tr>
-				<th scope="col">AT</th>
-				<th scope="col">Powersets</th>
+				<th scope="col" width="18%">AT</th>
+				<th scope="col" width="18%">Powersets</th>
+				<th scope="col" width="18%">Last Updated</th>
 				<th scope="col">Description</th>
 			</tr>
 		</thead>
@@ -43,11 +44,16 @@
 			<tr v-for="build in filteredBuilds">
 				<td>{{ build.archetype }}</td>
 				<td>{{ build.primary }} / {{ build.secondary }}</td>
-				<td><a v-bind:href="'/build/view/id/' + build.id">{{ build.title }}</a><br />{{ build.author }}</td>
+				<td>{{ build.updated | ago }}</td>
+				<td>
+					<a v-bind:href="'/build/view/id/' + build.id">{{ build.title }}</a><br />
+					{{ build.author }}
+				</td>
 			</tr>
 		</tbody>
 	</table>
 
 </div>
+<script src="//unpkg.com/moment"></script>
 <script language="javascript" src="/assets/js/home.js?v=#application.jsver#"></script>
 </cfoutput>

@@ -60,5 +60,10 @@ new Vue({
 
 			return filtered
 		}
+	},
+	filters: {
+		ago: function (value) {
+			return new moment(value).fromNow()
+		}
 	}
 })

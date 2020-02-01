@@ -33,6 +33,9 @@ component output = "false" {
 		prc.jsonData['secondary'] = "";
 		prc.jsonData['title'] = "";
 		prc.jsonData['description'] = "";
+
+		prc.jsonData['pools'] = BuildService.getPowersets();
+
 		event.setView("build/edit");
 	}
 

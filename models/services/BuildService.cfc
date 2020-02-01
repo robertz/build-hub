@@ -99,7 +99,7 @@ component output = "false" {
 			'Controller',
 			'Defender',
 			'Scrapper',
-			'Tank',
+			'Tanker',
 			'Mastermind',
 			'Stalker',
 			'Brute',

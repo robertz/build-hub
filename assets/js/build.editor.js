@@ -9,7 +9,9 @@ new Vue({
 			title: window.kdfe.title,
 			description: window.kdfe.description,
 
-			archetypes: window.kdfe.at
+			archetypes: window.kdfe.at,
+			pools: window.kdfe.pools
+
 		}
 	},
 	methods: {
@@ -35,6 +37,16 @@ new Vue({
 			.then(res => {
 				document.location = '/account'
 			});
+		}
+	},
+	computed: {
+		atPrimary: function () {
+			if(!(this.archetype in this.pools)) return []
+			return this.pools[this.archetype].primary
+		},
+		atSecondary: function () {
+			if (!(this.archetype in this.pools)) return []
+			return this.pools[this.archetype].secondary || []
 		}
 	}
 })

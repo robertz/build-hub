@@ -10,10 +10,20 @@
 		</div>
 
 		<div class="col-2">Primary</div>
-		<div class="col-10"><input type="text" v-model="primary" class="form-control mt-1 mb-1" required /></div>
+		<div class="col-10">
+			<select v-model="primary" class="form-control mt-1 mb-1" v-if="atPrimary.length">
+				<option v-for="power in atPrimary" :value="power">{{ power }}</option>
+			</select>
+			<input type="text" v-model="primary" class="form-control mt-1 mb-1" v-else required />
+		</div>
 
 		<div class="col-2">Secondary</div>
-		<div class="col-10"><input type="text" v-model="secondary" class="form-control mt-1 mb-1" required /></div>
+		<div class="col-10">
+			<select v-model="secondary" class="form-control mt-1 mb-1" v-if="atSecondary.length">
+				<option v-for="power in atSecondary" :value="power">{{ power }}</option>
+			</select>
+			<input type="text" v-model="secondary" class="form-control mt-1 mb-1" v-else required />
+		</div>
 
 		<div class="col-2">Title</div>
 		<div class="col-10"><input type="text" v-model="title" class="form-control mt-1 mb-1" required /></div>

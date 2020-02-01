@@ -131,6 +131,7 @@ component output = "false" {
 					'Water Blast'
 				],
 				'secondary': [
+                    'Atomic Manipulation',
 					'Darkness Manipulation',
 					'Devices',
 					'Electricity Manipulation',
@@ -138,7 +139,11 @@ component output = "false" {
 					'Fire Manipulation',
 					'Ice Manipulation',
 					'Martial Combat',
-					'Mental Manipulation'
+					'Mental Manipulation',
+                    'Ninja Training',
+                    'Plant Manipulation',
+                    'Tactical Arrow',
+                    'Temporal Manipulation'
 				]
 			},
 			'Brute': {
@@ -150,6 +155,7 @@ component output = "false" {
 					'Electrical Melee',
 					'Energy Melee',
 					'Fiery Melee',
+                    'Ice Melee',
 					'Katana',
 					'Kinetic Melee',
 					'Psionic Melee',
@@ -169,6 +175,7 @@ component output = "false" {
 					'Electric Armor',
 					'Energy Aura',
 					'Fiery Aura',
+                    'Ice Armor',
 					'Invulnerability',
 					'Radiation Armor',
 					'Regeneration',
@@ -188,8 +195,7 @@ component output = "false" {
 					'Ice Control',
 					'Illusion Control',
 					'Mind Control',
-					'Plant Control',
-					'Wind Control'
+					'Plant Control'
 				],
 				'secondary': [
 					'Cold Domination',
@@ -198,12 +204,14 @@ component output = "false" {
 					'Force Field',
 					'Kinetics',
 					'Nature Affinity',
+                    'Pain Domination',
 					'Poison',
 					'Radiation Emission',
 					'Sonic Resonance',
 					'Storm Summoning',
 					'Thermal Radiation',
 					'Time Manipulation',
+                    'Traps',
 					'Trick Arrow'
 				]
 			},
@@ -216,6 +224,7 @@ component output = "false" {
 					'Dual Pistols',
 					'Electrical Blast',
 					'Energy Blast',
+                    'Fire Blast',
 					'Ice Blast',
 					'Psychic Blast',
 					'Radiation Blast',
@@ -225,6 +234,8 @@ component output = "false" {
 				'secondary': [
 					'Cold Domination',
 					'Dark Miasma',
+                    'Empathy',
+                    'Force Field',
 					'Kinetics',
 					'Nature Affinity',
 					'Pain Domination',
@@ -245,9 +256,13 @@ component output = "false" {
 					'Empathy',
 					'Force Field',
 					'Kinetics',
+                    'Nature Affinity',
+                    'Pain Domination',
+                    'Poison',
 					'Radiation Emission',
 					'Sonic Resonance',
 					'Storm Summoning',
+                    'Thermal Manipulation',
 					'Time Manipulation',
 					'Traps',
 					'Trick Arrow'
@@ -260,6 +275,7 @@ component output = "false" {
 					'Dual Pistols',
 					'Electrical Blast',
 					'Energy Blast',
+                    'Fire Blast',
 					'Ice Blast',
 					'Psychic Blast',
 					'Radiation Blast',
@@ -276,8 +292,7 @@ component output = "false" {
 					'Gravity Control',
 					'Ice Control',
 					'Mind Control',
-					'Plant Control',
-					'Wind Control'
+					'Plant Control'
 				],
 				'secondary': [
 					'Dark Assault',
@@ -288,6 +303,8 @@ component output = "false" {
 					'Icy Assault',
 					'Martial Assault',
 					'Psionic Assault',
+                    'Radioactive Assault',
+                    'Savage Assault',
 					'Thorny Assault'
 				]
 			},
@@ -302,8 +319,11 @@ component output = "false" {
 					'Thugs'
 				],
 				'secondary': [
+                    'Cold Domination',
 					'Dark Miasma',
+                    'Empathy',
 					'Force Field',
+                    'Kinetics',
 					'Nature Affinity',
 					'Pain Domination',
 					'Poison',
@@ -326,6 +346,7 @@ component output = "false" {
 					'Fiery Melee',
 					'Katana',
 					'Kinetic Melee',
+                    'Martial Arts',
 					'Psionic Melee',
 					'Radiation Melee',
 					'Savage Melee',
@@ -341,7 +362,9 @@ component output = "false" {
 					'Electric Armor',
 					'Energy Aura',
 					'Fiery Aura',
+                    'Ice Armor',
 					'Invulnerability',
+                    'Ninjitsu',
 					'Radiation Armor',
 					'Regeneration',
 					'Shield Defense',
@@ -357,7 +380,10 @@ component output = "false" {
 					'Dual Blades',
 					'Electrical Melee',
 					'Energy Melee',
+                    'Fiery Melee',
+                    'Ice Melee',
 					'Kinetic Melee',
+                    'Martial Arts',
 					'Ninja Blade',
 					'Psionic Melee',
 					'Radiation Melee',
@@ -371,7 +397,9 @@ component output = "false" {
 					'Dark Armor',
 					'Electric Armor',
 					'Energy Aura',
+                    'Fiery Aura',
 					'Ice Armor',
+                    'Invulnerability',
 					'Ninjitsu',
 					'Radiation Armor',
 					'Regeneration',
@@ -396,16 +424,21 @@ component output = "false" {
 				],
 				'secondary': [
 					'Battle Axe',
+                    'Broad Sword',
+                    'Claws',
 					'Dark Melee',
 					'Dual Blades',
 					'Electrical Melee',
 					'Energy Melee',
 					'Fiery Melee',
 					'Ice Melee',
+                    'Katana',
 					'Kinetic Melee',
+                    'Martial Arts',
 					'Psionic Melee',
 					'Radiation Melee',
 					'Savage Melee',
+                    'Spines',
 					'Staff Fighting',
 					'Stone Melee',
 					'Street Justice',
@@ -413,7 +446,74 @@ component output = "false" {
 					'Titan Weapons',
 					'War Mace'
 				]
-			}
+			},
+            'Peacebringer': {
+                'primary': [
+                    'Luminous Blast'
+                ],
+                'secondary': [
+                    'Luminous Aura'
+                ]
+            },
+            'Warshade': {
+                'primary': [
+                    'Umbral Blast'
+                ],
+                'secondary': [
+                    'Umbral Aura'
+                ]
+            },
+            'Sentinel': {
+                'primary': [
+                    'Archery',
+                    'Assault Rifle',
+                    'Beam Rifle',
+                    'Dark Blast',
+                    'Dual Pistols',
+                    'Electrical Blast',
+                    'Energy Blast',
+                    'Fire Blast',
+                    'Ice Blast',
+                    'Psychic Blast',
+                    'Radiation Blast',
+                    'Sonic Attack',
+                    'Water Blast'
+                ],
+                'secondary': [
+                    'Bio Armor',
+                    'Dark Armor',
+                    'Electric Armor',
+                    'Energy Aura',
+                    'Fiery Aura',
+                    'Ice Armor',
+                    'Invulnerability',
+                    'Ninjitsu',
+                    'Radiation Armor',
+                    'Regeneration',
+                    'Super Reflexes',
+                    'Willpower'
+                ]
+            },
+            'Arachnos Soldier': {
+                'primary': [
+                    'Arachnos Soldier',
+                    'Bane Spider Soldier',
+                    'Crab Spider Soldier'
+                ],
+                'secondary': [
+                    'Training and Gadgets'
+                ]
+            },
+            'Arachnos Widow': {
+                'primary': [
+                    'Fortunata Training',
+                    'Night Widow Training',
+                    'Widow Training'
+                ],
+                'secondary': [
+                    'Fortunata Teamwork'
+                ]
+            }
 		}
 	}
 

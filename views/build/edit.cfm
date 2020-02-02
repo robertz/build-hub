@@ -7,7 +7,6 @@
 				<option v-for="at in archetypes" :value="at">{{ at }}</option>
 			</select>
 		</div>
-
 		<div class="col-2">Primary</div>
 		<div class="col-10">
 			<select v-model="primary" class="form-control mt-1 mb-1" v-if="atPrimary.length">
@@ -15,7 +14,6 @@
 			</select>
 			<input type="text" v-model="primary" class="form-control mt-1 mb-1" v-else required />
 		</div>
-
 		<div class="col-2">Secondary</div>
 		<div class="col-10">
 			<select v-model="secondary" class="form-control mt-1 mb-1" v-if="atSecondary.length">
@@ -23,16 +21,27 @@
 			</select>
 			<input type="text" v-model="secondary" class="form-control mt-1 mb-1" v-else required />
 		</div>
-
 		<div class="col-2">Title</div>
 		<div class="col-10"><input type="text" v-model="title" class="form-control mt-1 mb-1" required /></div>
-
+		<div class="col-2"></div>
+		<div class="col-10">
+			<br />
+			<p>
+				For best results use Mids Reborn long forum export as plain text. For security reasons any HTML tags
+				will be sanitized before being saved.
+			</p>
+			<p>
+				Click on "Detect Build" after pasting in your build will attempt to detect archetype and power pools.
+			</p>
+		</div>
 		<div class="col-2">Description</div>
 		<div class="col-10" style="height: 25vh;"><textarea v-model="description" class="form-control mt-1 mb-1" style="width: 100%; height: 25vh;" required></textarea></div>
-
 		<div class="col-2"></div>
-		<div class="col-10"><br /><a class="btn btn-primary" v-on:click="submitForm">Submit</a></div>
-
+		<div class="col-10">
+			<br />
+			<a class="btn btn-primary" v-on:click="submitForm">Submit</a>
+			<a class="btn btn-secondary" v-on:click="detectBuild">Detect Build</a>
+		</div>
 	</div>
 </div>
 <script src="/assets/js/build.editor.js?v=#application.jsver#"></script>

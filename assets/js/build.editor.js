@@ -40,6 +40,27 @@ new Vue({
 			.then(res => {
 				document.location = '/account'
 			});
+		},
+		detectBuild: function () {
+			let parsed = this.description.split('\n')
+			let atLine = parsed.filter(line => {
+				return line.includes('Level')
+			})
+			let primaryLine = parsed.filter(line => {
+				return line.includes('Primary Power Set:')
+			})
+			let secondaryLine = parsed.filter(line => {
+				return line.includes('Secondary Power Set:')
+			})
+			let detectedAT = ''
+			for (i in this.archetypes) {
+				detectedAT = atLine[0].includes(this.archetypes[i]) ? this.archetypes[i] : detectedAT
+			}
+			let detectedPrimary = primaryLine[0].replace('Primary Power Set:', '').trim()
+			let detectedSecondary = secondaryLine[0].replace('Secondary Power Set:', '').trim()
+			this.archetype = detectedAT
+			this.primary = detectedPrimary
+			this.secondary = detectedSecondary
 		}
 	},
 	computed: {

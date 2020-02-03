@@ -122,6 +122,7 @@ component output = "false" {
 					'Dual Pistols',
 					'Electrical Blast',
 					'Energy Blast',
+					'Fire Blast',
 					'Ice Blast',
 					'Psychic Blast',
 					'Radiation Blast',

@@ -16,6 +16,9 @@ component output = "false" {
 			prc['seo']['og:type'] = "article";
             prc['seo']['og:title'] = prc.build.title;
 			prc['seo']['og:description'] = prc.build.title;
+
+			prc['seo']['twitter:title'] = prc.build.title;
+			prc['seo']['twitter.description'] = prc.build.title;
 		}
 		catch(any e) {
 			relocate("main");

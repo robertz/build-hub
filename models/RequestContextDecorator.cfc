@@ -24,7 +24,11 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 			"og:image": "https://hub.kisdigital.com/assets/images/sharer.jpg",
 			"og:description": "A database of character builds for City of Heroes and City of Villains",
 			"og:locale": "en_US",
-			"og:site_name": "KISDigital.com Build Hub"
+			"og:site_name": "KISDigital.com Build Hub",
+			"twitter:card": "summary",
+			"twitter:title": "KISDigital.com: Build Hub",
+			"twitter:descritpion": "A database of character builds for City of Heroes and City of Villains",
+			"twitter:image": "https://hub.kisdigital.com/assets/images/sharer.jpg"
 		};
 
 		return this;

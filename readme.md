@@ -8,6 +8,8 @@ WIP
 
 ## Database Generation
 
+Assuming MariaDB/MySQL
+
 ```sql
 CREATE TABLE `builds` (
   `id` varchar(48) NOT NULL DEFAULT '',

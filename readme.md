@@ -45,7 +45,7 @@ Getting up and running quickly
 * `box install`
 * `box server start`
 * The server will start, but will error out until you have configured your Lucee instance
-* Configure the datasource Lucee Server Admin (http://127.0.01/lucee/admin/server.cfm)
+* Configure the datasource Lucee Server Admin (http://127.0.0.1/lucee/admin/server.cfm)
 
 Once the datasource has been configured you can edit the datasource to get the datasources config block for Application.cfc. 
 

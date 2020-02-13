@@ -3,6 +3,7 @@ component output = "false" {
 	property name = "BuildService" inject;
 	property name = "UserService" inject;
 	property name = "AntiSamy" inject = "antisamy@cbantisamy";
+	property name = "defaultUser" inject = "coldbox:setting:defaultUser";
 
 	// builds getter
 	function index(event, rc, prc){
@@ -55,12 +56,13 @@ component output = "false" {
 		}
 		// validate the user owns the build
 		var b = (rc.keyExists("id") && rc.id.len()) ? BuildService.getBuild(id = rc.id) : [];
-		if((b.len() && b[1].authorId == client.userId) || !rc.id.len() ) {
+		// there is an id and the author matches the logged in user OR no id and the user is logged in
+		if((b.len() && b[1].authorId == client.userId) || (!rc.id.len() && client.userId != defaultUser) ) {
 			BuildService.putBuild(rc);
 		} else {
 			res['meta_data'] = {
 				'code': 401,
-				'message': "You are not authorized to update the build",
+				'message': "You are not authorized to perform this action",
 				'status': "Unauthorized",
     			'type': "error"
 			};

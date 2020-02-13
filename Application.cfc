@@ -6,24 +6,21 @@
 component{
 
 	this.datasources["web"] = {
-		class: 'com.mysql.cj.jdbc.Driver'
-		, bundleName: 'com.mysql.cj'
-		, bundleVersion: '8.0.15'
-		, connectionString: 'jdbc:mysql://127.0.0.1:3306/web?useUnicode=true&characterEncoding=UTF8&serverTimezone=Etc/UTC&autoReconnect=true&useLegacyDatetimeCode=true'
+		  class: 'com.mysql.jdbc.Driver'
+		, bundleName: 'com.mysql.jdbc'
+		, bundleVersion: '5.1.40'
+		, connectionString: 'jdbc:mysql://localhost:3306/web?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=true'
 		, username: 'rob'
-		, password: "encrypted:e8853fe680634af81109b0bbaf9a7c6233f5b78c34b08006306af8789ffa53aa05638877454f1ebb"
-
+		, password: "encrypted:49bd112f78d3933741e4a4f83ec455f316e338acd1d91d4f7e0d21c284a687b445377951cb4d774659fab275772f1375"
 		// optional settings
-		, blob:true // default: false
-		, clob:true // default: false
 		, connectionLimit:100 // default:-1
 		, storage:true // default: false
-		, alwaysSetTimeout:true // default: false
-		, validate:false // default: false
 	};
 
 	this.datasource = "web";
 	this.clientManagement = true;
+	this.sessionStorage = "web";
+	this.clientStorage = "web";
 
 	// Application properties
 	this.name = hash( getCurrentTemplatePath() );

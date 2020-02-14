@@ -10,7 +10,4 @@ component output = "false" {
 		abort;
 	}
 
-	function robsHood (event, rc, prc) {
-		writeDump(var="#antisamy#", abort = true, label = "label");
-	}
 }

@@ -22,7 +22,7 @@ component extends="coldbox.system.EventHandler"{
 	/************************************** IMPLICIT ACTIONS *********************************************/
 
 	function onAppInit(event,rc,prc){
-		application['jsver'] = dateTimeFormat(now(), "yyyymmdd.HHmmss");
+		application['jsver'] = dateTimeFormat(now(), "yyyymmdd.HHnnss");
 	}
 
 	function onRequestStart(event,rc,prc){

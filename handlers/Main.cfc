@@ -22,7 +22,7 @@ component extends="coldbox.system.EventHandler"{
 	/************************************** IMPLICIT ACTIONS *********************************************/
 
 	function onAppInit(event,rc,prc){
-		application['jsver'] = lcase(createUUID());
+		application['jsver'] = dateTimeFormat(now(), "yyyymmdd.HHmmss");
 	}
 
 	function onRequestStart(event,rc,prc){
@@ -48,7 +48,7 @@ component extends="coldbox.system.EventHandler"{
 		var exception = prc.exception;
 		//Place exception handler below:
 
-		// setNextEvent("main/uhoh");
+		setNextEvent("main/uhoh");
 	}
 
 	function pageNotFound (event, rc, prc) {

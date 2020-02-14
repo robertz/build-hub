@@ -10,7 +10,7 @@
 	<table class="table table-condensed table-dark table-striped">
 		<thead>
 			<tr>
-				<th></th>
+				<th width="100"></th>
 				<th>Archetype</th>
 				<th>Primary</th>
 				<th>Secondary</th>

@@ -10,4 +10,13 @@ component output = "false" {
 		abort;
 	}
 
+	function robsHood (event, rc, prc) {
+		var q = queryExecute("SELECT identifier FROM resources WHERE identifier LIKE 'Class_Brute%'", [], { returnType: "array" });
+		var pools = [];
+		q.each(function(p) {
+			if(!pools.contains(p.identifier.listFirst("."))) pools.append(p.identifier.listFirst("."));
+		});
+		writeDump(var=pools, abort = true, label = "label");
+	}
+
 }

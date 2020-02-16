@@ -1,5 +1,7 @@
 component output = "false" {
 
+	property name = "ResourceService" inject;
+
 	function init () {
 		return this;
 	}
@@ -514,6 +516,39 @@ component output = "false" {
                 ]
             }
 		}
+	}
+
+
+
+	// Designer
+
+	function _getArchetypes () {
+		var res = cacheGet("archetypes");
+		if (isNull(res)) {
+			var ATs = [];
+			var data = ResourceService.getResource(id = 'I12');
+			data.archetypes.each(function(at) {
+				if(at.keyExists("Playable")){
+					ATs.append({
+						'displayName': at.displayName,
+						'className': at.className,
+						'primaryGroup': at.primaryGroup,
+						'secondaryGroup': at.secondaryGroup
+					});
+				}
+			});
+			cachePut("archetypes", ATs);
+			res = ATs;
+		}
+		return res;
+	}
+
+	function getClass (required string className) {
+		var data = ResourceService.getResource(id = 'I12');
+		var filtered = data.archetypes.filter(function(at){
+			return at.ClassName == className;
+		});
+		writeDump(var=filtered[1], abort = true, label = "label");
 	}
 
 }

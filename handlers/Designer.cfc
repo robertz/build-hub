@@ -4,13 +4,14 @@ component output = "false" {
 	property name = "UserService" inject;
 	property name = "BuildService" inject;
 	property name = "ResourceService" inject;
+	property name = "SerializerService" inject;
 
 	function index (event, rc, prc) {
 		// prc['jsonData']['arches'] = BuildService._getArchetypes();
 		// prc['jsonData']['arch'] = BuildService.getClass(className = "Class_Blaster");
 
 		// https://github.com/ImaginaryDevelopment/imaginary-hero-designer/blob/master/Base/Base/Data_Classes/Archetype.cs
-		prc['jsonData']['archtype'] = {
+		prc['jsonData']['archetype'] = {
 			'baseThreat': 1,
 			'baseRegen:': 1,
 			'baseRecovery': 1.67,
@@ -39,11 +40,11 @@ component output = "false" {
 			'className': "NewClass"
 		};
 
-		var ec = binaryEncode(toBinary(toBase64(serializeJSON(prc.jsonData.archtype))), "hex");
+		var ec = SerializerService.serialize(prc.jsonData.archetype);
 
 
 		writeDump(var = ec, abort = false, label = "label");
-		writeDump(var = toString(binaryDecode(ec, "hex")), abort = true, label = "label");
+		writeDump(var = SerializerService.deserialize(ec), abort = true, label = "label");
 	}
 
 }

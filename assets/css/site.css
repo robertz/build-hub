@@ -6,10 +6,20 @@ html {
 	background-size: cover;
 }
 
+html.designer {
+	background: #000;
+}
+
 body {
 	margin-top: 75px;
 	background-color: transparent;
 	font-size: .8em;
+}
+
+body.designer {
+	margin-top: 8px;
+	font-size: .8em;
+	}
 }
 
 .fixed-header {
